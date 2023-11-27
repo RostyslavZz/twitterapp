@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/static/js/base.js"></script>
+    <script src="/static/js/profilebutton.js"></script>
+    <script src="/static/js/postPage.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    {% block import %}
+    {%endblock%}
+</head>
+<body class="colour">
+<div class="container-fluid" id="color">
+    <div class="row">
+        <div class="col-3 sidebar">
+            <a href="/"><img src="/static/images/twitter.png" width="70" height="70" class="my-3 mx-4"></a><br>
+            <a href="/" class="text-white link my-2"><img src="/static/images/newdomoy.png" height="30"> Home</a><br>
+            <a href="/Poisk" class="text-white link my-2" ><img src="/static/images/newpoisk.png" height="30">Search</a><br>
+            <a href="/Profile" class="text-white link my-2"><img src="/static/images/profile.png" height="30"> Profile</a><br>
+            <a href="/logout" class="text-white link my-2"><img src="/static/images/exit2.png" height="30">Logout</a><br>
+            <button id="open" class="text-white my-2 btn btn-primary btn-block font-weight-bold btn-lg" style="border-radius:40px">Create Post</button><br>
+        </div>
+        <div class="col-9">
+            {% block base %}
+            {%endblock %}
+        </div>
+{% csrf_token %}
+
+
+   </div>
+</div>
+<dialog id="input" class="postcreate">
+    <div class="container-fluid">
+        <div class="row my-3">
+                <img id="close" src="/static/images/crestik.png" class="close">
+        </div>
+        <div class="row mt-5">
+            <a style="display:flex" href="/Profile/{{user.id}}"><img class="linkavatar" src="{{user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{user.username}}</p></a>
+        </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <textarea placeholder="Enter" id="text" class="textfield text-white"></textarea>
+    </div>
+        <br>
+        <br>
+        <button id="galereya"><img src="/static/images/galereya.png" height="40"></button>
+    <input id="image" type="file">
+    <button class="btn btn-primary mx-3" id="button">Submit</button>
+    </div>
+</dialog>
+</body>
+</html>

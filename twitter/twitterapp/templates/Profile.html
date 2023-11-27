@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block base %}
+{% csrf_token %}
+<h1>{{user.username}}</h1>
+{% if followed == 'followed' %}
+<button id="follow" data-url="/Profile/{{user.id}}/">unfollow</button>
+{% else %}
+<button id="follow" data-url="/Profile/{{user.id}}/">follow</button>
+{% endif %}
+{% for a in post %}
+<h1>{{a.text}}</h1>
+{% endfor %}
+{%endblock %}

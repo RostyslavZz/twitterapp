@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{%block import%}
+<script src="/static/js/main.js"></script>
+{%endblock%}
+{% block base %}
+<div class="container-fluid my-3">
+    <div class="row">
+        {% csrf_token %}
+        <div class="col-9">
+            {% for a in following %}
+                <div class="post">
+                    <a class='mt-4' style="display:flex" href="/Profile/{{a.0.user.id}}"><img class="linkavatar" src="{{a.0.user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{a.0.user.username}}</p></a>
+                    <p class="text-white my-1" style="margin:0px 65px; font-size:20px">{{a.0.text}}</p>
+                    <div class="imagecover">
+                        {% if a.0.image.url != '' %}
+                        <a href="/postPage/{{a.0.id}}/"><img src="{{a.0.image.url}}" class="postimages"> </a>
+                        {% endif %}
+                    </div>
+                    <br >
+                    {% if a.2 == 1 %}
+                    <img id="{{a.0.id}}" class="buttonsImages ml-4" src="/static/images/like.png"> <span class="text-white" id="likes{{a.0.id}}">{{a.1}}</span>
+                    {% else %}
+                    <img id="{{a.0.id}}" class="buttonsImages ml-4" src="/static/images/dislike.png"> <span class="text-white" id="likes{{a.0.id}}">{{a.1}}</span>
+                    {% endif %}
+                    <img  class="buttonsImages ml-5" src="/static/images/comments1.png">
+                    <span class="createat mx-5 my-2">{{a.3}}</span>
+                    <img  class="buttonsImages ml-5" src="/static/images/save1.png">
+                    <img  class="buttonsImages ml-5" src="/static/images/share1.png">
+                </div>
+            {%endfor %}
+        </div>
+        <div class="col-3 rightPanel">
+            <a style="display:flex" href="/Profile/{{user.id}}"><img class="linkavatar" src="{{user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{user.username}}</p></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

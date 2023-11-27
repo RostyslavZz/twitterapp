@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%block import%}
+<script src="/static/js/Poisk.js"></script>
+{% endblock %}
+{% block base %}
+{% csrf_token %}
+<div class="container-fluid my-3">
+    <div class="row">
+        {% csrf_token %}
+        <div class="col-9">
+            <input class="poisk my-3" type="text" id="123" placeholder="Enter Name">
+            <div class="my-3" id="poisk">
+            </div>
+        </div>
+        <div class="col-3">
+            <a style="display:flex" href="/Profile/{{user.id}}"><img class="linkavatar" src="{{user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{user.username}}</p></a>
+        </div>
+    </div>
+</div>
+{%endblock %}

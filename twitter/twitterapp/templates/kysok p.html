@@ -1,0 +1,6 @@
+<div>
+    {% for a in kkey %}
+    <a class="my-2" style="display:flex" href="/Profile/{{a.id}}"><img class="linkavatar" src="{{a.avatar.url}}"><p class="linkname font-weight-bold mx-3">{{a.username}}</p></a>
+    <br>
+    {% endfor %}
+</div>

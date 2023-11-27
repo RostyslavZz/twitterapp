@@ -1,0 +1,229 @@
+.close {
+    width:20px;
+    height:20px;
+}
+
+.colour {
+    background-color:black;
+}
+
+.sidebar {
+    position: fixed;
+    height:100vh;
+    border-right : 2px solid #101010;
+}
+
+.link {
+    font-size: 27px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 30px;
+    text-align: left;
+}
+.link:hover {
+    background: #101010;
+    border-radius: 40px;
+    text-decoration: none;
+    transform : scale(1.15);
+}
+.post {
+    width:100%;
+    border-top : 2px solid #101010;
+
+}
+.linkavatar {
+    border-radius:50%;
+    height: 50px;
+    width: 50px;
+}
+.linkname {
+    color:white;
+    text-decoration: none;
+    width: 25%;
+    font-size:20px;
+}
+.linkname:hover {
+    color: #DCDCDC;
+    text-decoration: none;
+}
+.postimages {
+    max-width: 95%;
+    max-height: 500px;
+    border-radius: 5%;
+}
+.postcreate {
+    width : 35%;
+    height : 35%;
+    border-radius : 5%;
+    background-color : black;
+    top : 10%;
+}
+[inert] > * {
+  opacity: 0.5;
+}
+.textfield {
+    width : 95%;
+    background-color : black;
+    border : 0px solid;
+    outline : none;
+    resize : none;
+    font-size : 23px;
+    height : 100px;
+}
+
+#image {
+    display : none;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: back;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: back;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: back;
+}
+
+.poisk {
+    width : 90%;
+    height : 30px;
+    background-color : #404040;
+    border-radius : 10px;
+    border : 0px;
+    color : white;
+    padding : 20px;
+}
+
+.profileImage {
+    border-radius : 50%;
+    height : 150px;
+    border : 5px solid black;
+    position : absolute;
+    top : 110px;
+    left : 20px;
+}
+
+.fon {
+    width : 100%;
+    height : 200px;
+}
+
+.imagediv {
+    width : 100%;
+
+}
+
+.settings {
+    color : white;
+    background-color : black;
+    border : 1px solid white;
+    border-radius : 40px;
+    float : right;
+    font-size : 24px;
+    padding : 5px 15px;
+}
+.settings:hover {
+    background-color : #202020;
+}
+.color1 {
+    color: #A0A0A0;
+}
+
+.profilebuttons {
+    width : 100%;
+    height : 70px;
+    color : white;
+    display : flex;
+    border-bottom : 2px solid #101010;
+
+}
+
+
+.classesbuttons:link {
+    text-decoration : none;
+    color : #949494;
+}
+
+.classesbuttons:active {
+    color : white;
+    border-bottom : 5px solid #0080FF;
+}
+.covers {
+    width : 25%;
+    height : 100%;
+    text-align : center;
+    padding : 0px;
+    color : #949494;
+    font-size : 24px;
+    line-height : 70px;
+}
+.covers:hover {
+    background-color : #101010;
+
+}
+
+
+.images {
+    width : 90%;
+    border-radius : 5%;
+
+}
+.images:hover {
+    transform : scale(1.05)
+}
+
+.buttonsImages {
+    width : 5%;
+    padding : 10px 10px;
+}
+.buttonsImages:hover {
+    background: #101010;
+    border-radius : 35%;
+}
+.createat {
+    color : #808080;
+    float : right;
+
+}
+.rightPanel {
+    border-left : 2px solid #101010;
+}
+
+.imagecover{
+    width : 100%;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+
+}
+.rg {
+    justify-content : center;
+    align-items : center;
+}
+.rglines {
+    width : 30%;
+    height : 30px;
+    background-color : #404040;
+    border-radius : 10px;
+    border : 0px;
+    color : white;
+    padding : 20px;
+    outline : none;
+}
+.createaccount {
+    text-decoration : none;
+    color : #C0C0C0;
+}
+.createaccount:hover {
+    color : #A0A0A0;
+}

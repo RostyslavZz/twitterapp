@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="/static/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+</head>
+<body class="colour">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <img class="my-5" src="/static/images/twtext.png">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for a in form %}
+                    <b><p class="text-white my-3">{{a.label_tag}}</p></b>
+                    {{a}}
+                    <br>
+                    {% endfor %}
+                    <button class="my-3 btn btn-primary btn-lg " style="border-radius:40px; width:200px">Submit</button>
+                    <br>
+                    <a class="createaccount my-5" href="/login">Already have an account?</a>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
