@@ -1,0 +1,6 @@
+<div style="" class="rec">
+    <center class="my-3"><h3><b>Recommendations</b></h3></center>
+    {% for a in newrec %}
+    <a class='mt-4 mx-3' style="display:flex" href="/Profile/{{a.id}}"><img class="linkavatar" src="{{a.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{a.username}}</p></a>
+    {%endfor %}
+</div>

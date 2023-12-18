@@ -6,7 +6,7 @@
 <div class="container-fluid my-3">
     <div class="row">
         {% csrf_token %}
-        <div class="col-9">
+        <div class="col-12">
             {% for a in following %}
                 <div class="post">
                     <a class='mt-4' style="display:flex" href="/Profile/{{a.0.user.id}}"><img class="linkavatar" src="{{a.0.user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{a.0.user.username}}</p></a>
@@ -28,9 +28,6 @@
                     <img  class="buttonsImages ml-5" src="/static/images/share1.png">
                 </div>
             {%endfor %}
-        </div>
-        <div class="col-3 rightPanel">
-            <a style="display:flex" href="/Profile/{{user.id}}"><img class="linkavatar" src="{{user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{user.username}}</p></a>
         </div>
     </div>
 </div>

@@ -24,3 +24,4 @@ class Comments(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['text']
+        widgets = {'text': forms.TextInput(attrs={'class': 'postfield', 'placeholder' : 'Comment'})}

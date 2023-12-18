@@ -3,27 +3,40 @@
 {% csrf_token %}
 <div class="container-fluid my-3">
     <div class="row">
-        <div class="col-9">
-            <b><h1>Post</h1></b>
+        <div class="col-12">
+            <div style="width : 100%; border-bottom : 2px solid #101010;">
+            <b><h1 class="text-white">Post</h1></b>
             <a class='mt-4' style="display:flex" href="/Profile/{{user.id}}"><img class="linkavatar" src="{{user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{user.username}}</p></a>
             <p class="text-white my-4">{{post.text}}</p>
 
             {% if post.image %}
-            <img src="{{post.image.url}}">
+            <img class="postimages" src="{{post.image.url}}">
             {% endif %}
-            {% if like == 0 %}
-            <button id="like" data-url="/postPage/{{post.id}}/">dislike</button>
-            {% else %}
-            <button id="like" data-url="/postPage/{{post.id}}/">like</button>
-            {% endif %}
-            <h3 id="kollike">{{keylike}}</h3>
-            <div id="comments">
+            <br >
+                <div class="my-4">
+                    {% if like == 0 %}
+                    <img id="like" class="buttonsImages ml-4" src="/static/images/like.png"> <span class="text-white" id="kollike">{{keylike}}</span>
+                    {% else %}
+                    <img id="like" class="buttonsImages ml-4" src="/static/images/dislike.png"> <span class="text-white" id="kollike">{{keylike}}</span>
+                    {% endif %}
+                    <img  class="buttonsImages ml-5" src="/static/images/comments1.png">
+                    <img  class="buttonsImages ml-5" src="/static/images/save1.png">
+                    <img  class="buttonsImages ml-5" src="/static/images/share1.png">
+                    <span class="createat mx-5 my-2">{{postdate}}</span>
+                </div>
+            </div>
+            <div style="width : 100%; border-bottom : 2px solid #101010; padding : 20px 0px;">
+                <a class='my-4' href="/Profile/{{user.id}}"><img class="linkavatar" src="{{user.avatar.url}}"></a>
+                {{form}}
+                <button style="float : right" class="btn btn-primary mx-3" id="comentb" data-url="/postPage/{{post.id}}/"><b>Submit</b></button>
+
+            </div>
+            <div style="width : 100%" id="comments">
             {% for a in comments %}
-            <p><b>{{a.user.username}}</b> {{a.text}}</p>
+                <a class='mt-4' style="display:flex" href="/Profile/{{a.user.id}}"><img class="linkavatar" src="{{a.user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{a.user.username}}</p></a>
+                    <p class="text-white my-1" style="margin:0px 65px; font-size:20px; hyphens : auto; width : 70%;">{{a.text}}</p>
             {% endfor %}
-    </div>
-    {{key3}}
-    <button id="comentb" data-url="/postPage/{{post.id}}/">enter</button>
+            </div>
         </div>
     </div>
 </div>

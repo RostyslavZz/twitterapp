@@ -11,9 +11,11 @@ $(function(){
             },
             'success': function(data){
                 if(data['key'] == 'unfollowed'){
-                    document.getElementById('follow').innerHTML = 'follow'
+                    document.getElementById('follow').innerHTML = '<b>Follow</b>'
+                    document.getElementById('follow').className = "follow my-3 mx-4"
                 }
-                else{document.getElementById('follow').innerHTML = 'unfollow'}
+                else{document.getElementById('follow').innerHTML = '<b>Unfollow</b>'
+                document.getElementById('follow').className = "settings my-3 mx-4"}
             }
         })
     })
@@ -31,10 +33,10 @@ $(function(){
             },
             'success': function(data){
                 document.getElementById('kollike').innerHTML = data['kol']
-                if(data['like'] == 0){
-                    document.getElementById('like').innerHTML = 'like'
-                }
-                else{document.getElementById('like').innerHTML = 'dislike'}
+                if(data['like'] == 1){
+                        document.getElementById('like').src = '/static/images/like.png'
+                    }else{document.getElementById('like').src = '/static/images/dislike.png'
+                    }
             }
         })
     })

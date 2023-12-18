@@ -1,13 +1,65 @@
 {% extends 'base.html' %}
+{%block import%}
+<script src="/static/js/main.js"></script>
+{%endblock%}
 {% block base %}
-{% csrf_token %}
-<h1>{{user.username}}</h1>
-{% if followed == 'followed' %}
-<button id="follow" data-url="/Profile/{{user.id}}/">unfollow</button>
-{% else %}
-<button id="follow" data-url="/Profile/{{user.id}}/">follow</button>
-{% endif %}
-{% for a in post %}
-<h1>{{a.text}}</h1>
-{% endfor %}
-{%endblock %}
+<div class="container-fluid my-3">
+    <div class="row">
+        {% csrf_token %}
+        <div class="col-12">
+            <h1 class="text-white mx-4" style="font-size : 30px"><b>{{user2.username}}</b></h1>
+            <p style="color : #A0A0A0" class="text-white mx-4 my-1"><small>{{manyposts}} posts</small></p>
+            <div style="width : 100%; position : relative; height : 275px">
+                <div class="imagediv">
+                    <img class="fon" src="{{user2.fon.url}}">
+                </div>
+                <img class="profileImage my-3" src="{{user2.avatar.url}}">
+                {% if followed == 'followed' %}
+                    <button class="settings my-3 mx-4" id="follow" data-url="/Profile/{{user2.id}}/"><b>Unfollow</b></button>
+                    {% else %}
+                    <button class="follow my-3 mx-4" id="follow" data-url="/Profile/{{user2.id}}/"><b>Follow</b></button>
+                    {% endif %}
+            </div>
+            <h1 class="text-white" style="font-size : 50px"><b>{{user2.username}}</b></h1>
+            <p class="color1 mt-5">{{usersdata}}</p>
+            <p class="color1 my-2">Followers {{koldata}}    Following {{kolsub}}</p>
+            <div class="profilebuttons my-5">
+                <div class="covers"><a class="classesbuttons" href="/Profile/{{user.id}}">Posts</a></div>
+                <div class="covers"><a class="classesbuttons" href="/Profile/{{user.id}}/Comments">Comments</a></div>
+                <div class="covers"><a class="classesbuttons" href="/Profile/{{user.id}}/Liked">Liked</a></div>
+                <div class="covers"><a class="classesbuttons" href="/Profile/{{user.id}}/Media">Media</a></div>
+
+            </div>
+            {% if posts %}
+            {% for a in posts %}
+                <div class="post">
+                    <a class='mt-4' style="display:flex" href="/Profile/{{a.0.user.id}}"><img class="linkavatar" src="{{a.0.user.avatar.url}}"><p class="linkname font-weight-bold mt-2 mx-3">{{a.0.user.username}}</p></a>
+                    <p class="text-white my-1" style="margin:0px 65px; font-size:20px">{{a.0.text}}</p>
+                    <div class="imagecover">
+                        {% if a.0.image.url != '' %}
+                        <a href="/postPage/{{a.0.id}}/"><img src="{{a.0.image.url}}" class="postimages"> </a>
+                        {% endif %}
+                    </div>
+                    <br >
+                    {% if a.2 == 1 %}
+                    <img id="{{a.0.id}}" class="buttonsImages ml-4" src="/static/images/like.png"> <span class="text-white" id="likes{{a.0.id}}">{{a.1}}</span>
+                    {% else %}
+                    <img id="{{a.0.id}}" class="buttonsImages ml-4" src="/static/images/dislike.png"> <span class="text-white" id="likes{{a.0.id}}">{{a.1}}</span>
+                    {% endif %}
+                    <a href="/postPage/{{a.0.id}}"><img class="buttonsImages ml-5" src="/static/images/comments1.png"></a>
+                    <span class="createat mx-5 my-2">{{a.3}}</span>
+                    <img  class="buttonsImages ml-5" src="/static/images/save1.png">
+                    <img  class="buttonsImages ml-5" src="/static/images/share1.png">
+                </div>
+            {%endfor %}
+            {% elif selfImages %}
+            {% for a in selfImages %}
+            <div style=" width : 100%" class="my-5">
+                <img class="images" src="{{a.url}}">
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
